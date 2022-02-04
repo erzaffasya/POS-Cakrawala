@@ -21,14 +21,14 @@
                                 placeholder="search with product name..">
                         </div>
                         <div class="col-lg-6 col-md-12 sort">
-                            <div class="col-lg-4 col-md-6 p-space">
+                            {{-- <div class="col-lg-4 col-md-6 p-space">
                                 <select class="form-control" id="dropdownCategory">
                                     <option value="ALL">ALL Category</option>
                                     @foreach ($kategori as $item)
                                         <option value="{{$item->id}}">{{$item->nama}}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="col-lg-4 col-md-6 p-space">
                                 <select class="form-control" id="dropdownOrderBy">
                                     <option value="ALL">ORDER BY</option>

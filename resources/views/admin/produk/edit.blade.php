@@ -120,14 +120,14 @@
                                         <input type="text" name="nama" value="{{ $produk->nama }}"
                                             class="form-control slug-title" id="inputEmail4">
                                     </div>
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <label class="form-label">Select Categories</label>
                                         <select name="kategori_id" id="Categories" class="form-select">
                                             @foreach ($kategori as $item)
                                                 <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-12">
                                         <label for="slug" class="col-12 col-form-label">Slug</label>
                                         <div class="col-12">

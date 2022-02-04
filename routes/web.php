@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\PembelianController;
+use App\Http\Controllers\PenjualanController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\SuratJalanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('admin.index');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::resource('produk', ProdukController::class);
+Route::resource('pejualan', PenjualanController::class);
+Route::resource('pembelian', PembelianController::class);
+Route::resource('suratjalan', SuratJalanController::class);
+Route::get('produk-grid', [ProdukController::class, 'grid'])->name('produk-grid');
+
 
 require __DIR__.'/auth.php';
