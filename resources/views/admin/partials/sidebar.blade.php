@@ -154,12 +154,12 @@
                      <div class="collapse {{ request()->is('suratjalan*') ? 'show' : '' }}">
                          <ul class="sub-menu" id="products" data-parent="#sidebar-menu">
                              <li class="{{ request()->is('suratjalan/create') ? 'active' : '' }}">
-                                 <a class="sidenav-item-link" href="">
+                                 <a class="sidenav-item-link" href="{{route('suratjalan.create')}}">
                                      <span class="nav-text">Tambah Surat Jalan</span>
                                  </a>
                              </li>
                              <li class="{{ request()->is('suratjalan') ? 'active' : '' }}">
-                                 <a class="sidenav-item-link" href="">
+                                 <a class="sidenav-item-link" href="{{route('suratjalan.index')}}">
                                      <span class="nav-text">Data Surat Jalan</span>
                                  </a>
                              </li>
