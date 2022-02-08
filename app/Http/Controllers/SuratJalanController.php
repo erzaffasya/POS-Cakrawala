@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use App\Models\SuratJalan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class SuratJalanController extends Controller
 {
@@ -25,31 +27,51 @@ class SuratJalanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
-            'harga' => 'required',
-            'detail' => 'required',
-            'stok' => 'required',
-            'gambar1' => 'required', 
+            'nama_penerima' => 'required',
+            'nomor_hp' => 'required',
+            'alamat_penerima' => 'required',
+            'tanggal' => 'required',
         ]);
 
-        $date = date("his");
-        $extension = $request->file('gambar1')->extension();
-        $file_name = "suratjalan_$date.$extension";
-        $path = $request->file('gambar1')->storeAs('public/suratjalan', $file_name);
+        // $date = date("his");
+        // $extension = $request->file('gambar1')->extension();
+        // $file_name = "suratjalan_$date.$extension";
+        // $path = $request->file('gambar1')->storeAs('public/suratjalan', $file_name);
+        $produk = $request->produk;
+        $jumlah = $request->jumlah;
+    
+
+        for ($i=0; $i < count($produk); $i++) { 
+            $p = Produk::find($produk[$i]);
+            $data[$i] = [
+                'nama' => $p->nama,
+                'harga' => $p->harga,
+                'jumlah' => $jumlah[$i],
+            ];
+        }
+        // dd($data);
+        // foreach($produk as $item){
+        //   $data[]=[
+        //     'nama'=>'asd',
+        //     'jumlah'
+        //   ];
+        // }
 
         SuratJalan::create([
-            'nama' => $request->nama,
-            'detail' => $request->detail,
-            'gambar' => $file_name,
-            'harga' => $request->harga,
-            'stok' => $request->stok,
+            'no' => Str::random(3).Date::now(),
+            'nama_penerima' => $request->nama_penerima,
+            'nomor_hp' => $request->nomor_hp,
+            // 'gambar' => $file_name,
+            'alamat_penerima' => $request->alamat_penerima,
+            'tanggal' => $request->tanggal,
+            'produk' => $data,
         ]);
         return redirect()->route('suratjalan.index')
             ->with('success', 'suratjalan Berhasil Ditambahkan');
     }
     public function show($id)
     {
-        $suratjalan = SuratJalan::where('id', $id)->first();
+        $suratjalan = SuratJalan::find($id);
         return view('admin.suratjalan.show', compact('suratjalan'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

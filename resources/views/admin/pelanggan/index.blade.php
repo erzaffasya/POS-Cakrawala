@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
         <div>
-            <h1>Produk</h1>
+            <h1>pelanggan</h1>
             <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
-                <span><i class="mdi mdi-chevron-right"></i></span>Produk
+                <span><i class="mdi mdi-chevron-right"></i></span>pelanggan
             </p>
         </div>
         <div>
-            <a href="{{ route('produk.create') }}" class="btn btn-primary"> Tambah Produk</a>
+            <a href="{{ route('pelanggan.create') }}" class="btn btn-primary"> Tambah pelanggan</a>
         </div>
     </div>
     <div class="row">
@@ -18,31 +18,30 @@
                         <table id="responsive-data-table" class="table" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Produk</th>
+                                    {{-- <th>pelanggan</th> --}}
                                     <th>Nama</th>
-                                    <th>Harga</th>
-                                    <th>Detail</th>
-                                    <th>Stok</th>
-                                    {{-- <th>Kategori</th> --}}
+                                    <th>Alamat</th>
+                                    <th>Nomor HP</th>                                   
+                                    <th>NPWP</th>
+                                    <th>KTP</th>
                                     <th>Status</th>
-                                    <th>Tanggal</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @foreach ($produk as $item)
+                                @foreach ($pelanggan as $item)
                                     <tr>
-                                        <td><img class="tbl-thumb"
-                                                src="{{ asset('storage/Produk/' . $item->gambar) }}"
-                                                alt="Product Image" /></td>
-                                        <td>{{ $item->nama }}</td>
-                                        <td>{{ $item->harga }}</td>
-                                        <td>{{ $item->detail }}</td>
-                                        <td>{{ $item->stok }}</td>
+                                        {{-- <td><img class="tbl-thumb" src="{{asset('storage/pelanggan/'.$item->gambar)}}"
+                                                alt="Product Image" /></td> --}}
+                                        <td>{{$item->nama}}</td>
+                                        <td>{{$item->alamat}}</td>
+                                        <td>{{$item->nomor_hp}}</td>
+                                        <td>{{$item->npwp}}</td>
+                                        <td>{{$item->ktp}}</td>
                                         {{-- <td>{{$item->kategori->nama}}</td> --}}
                                         <td>ACTIVE</td>
-                                        <td>{{ $item->created_at->format('m/d/Y') }}</td>
+                                        {{-- <td>{{$item->created_at->format('m/d/Y')}}</td> --}}
                                         <td>
                                             <div class="btn-group mb-1">
                                                 <button type="button" class="btn btn-outline-success">Info</button>
@@ -54,10 +53,8 @@
                                                 </button>
 
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item"
-                                                        href="{{ route('produk.edit', $item->id) }}">Edit</a>
-                                                    <a class="dropdown-item"
-                                                        href="{{ route('produk.destroy', $item->id) }}">Delete</a>
+                                                    <a class="dropdown-item" href="{{route('pelanggan.edit',$item->id)}}">Edit</a>
+                                                    <a class="dropdown-item" href="{{route('pelanggan.destroy',$item->id)}}">Delete</a>
                                                 </div>
                                             </div>
                                         </td>

@@ -29,5 +29,5 @@
 
     <!-- FAVICON -->
     <link href="{{ asset('tadmin/assets/img/favicon.png') }}" rel="shortcut icon" />
-    @yield('css')
+    @stack('css')
 </head>

@@ -79,6 +79,28 @@
                      <hr>
                  </li>
 
+                 {{-- Pelanggan --}}
+                 <li class="has-sub {{ request()->is('pelanggan*') ? 'active expand' : '' }}">
+                    <a class="sidenav-item-link" href="javascript:void(0)">
+                        <i class="mdi mdi-contacts"></i>
+                        <span class="nav-text">Pelanggan</span> <b class="caret"></b>
+                    </a>
+                    <div class="collapse {{ request()->is('pelanggan*') ? 'show' : '' }}">
+                        <ul class="sub-menu" id="products" data-parent="#sidebar-menu">
+                            <li class="{{ request()->is('pelanggan/create') ? 'active' : '' }}">
+                                <a class="sidenav-item-link" href="{{route('pelanggan.create')}}">
+                                    <span class="nav-text">Tambah Pelanggan</span>
+                                </a>
+                            </li>
+                            <li class="{{ request()->is('pelanggan') ? 'active' : '' }}">
+                                <a class="sidenav-item-link {{ request()->is('pelanggan') ? 'active' : '' }}" href="{{route('pelanggan.index')}}">
+                                    <span class="nav-text">Data Pelanggan</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                  <!-- Products -->
                  <li class="has-sub {{ request()->is('produk*') ? 'active expand' : '' }}">
                      <a class="sidenav-item-link" href="javascript:void(0)">
@@ -110,7 +132,7 @@
                      <div class="collapse {{ request()->is('penjualan*') ? 'show' : '' }}">
                          <ul class="sub-menu" id="products" data-parent="#sidebar-menu">
                              <li class="{{ request()->is('penjualan/create') ? 'active' : '' }}">
-                                 <a class="sidenav-item-link" href="">
+                                 <a class="sidenav-item-link" href="{{route('penjualan.create')}}">
                                      <span class="nav-text">Tambah Penjualan</span>
                                  </a>
                              </li>

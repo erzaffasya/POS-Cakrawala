@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\ProdukController;
@@ -17,12 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('admin.index');
 });
 
+Route::resource('pelanggan', PelangganController::class);
 Route::resource('produk', ProdukController::class);
-Route::resource('pejualan', PenjualanController::class);
+Route::resource('penjualan', PenjualanController::class);
 Route::resource('pembelian', PembelianController::class);
 Route::resource('suratjalan', SuratJalanController::class);
 Route::get('produk-grid', [ProdukController::class, 'grid'])->name('produk-grid');

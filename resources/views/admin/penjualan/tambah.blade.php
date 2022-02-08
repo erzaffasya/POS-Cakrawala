@@ -7,7 +7,7 @@
             </p>
         </div>
         <div>
-            <a href="{{ route('suratjalan.index') }}" class="btn btn-primary"> View All
+            <a href="{{ route('penjualan.index') }}" class="btn btn-primary"> View All
             </a>
         </div>
     </div>
@@ -20,7 +20,7 @@
 
                 <div class="card-body">
                     <div class="row ec-vendor-uploads">
-                        <form class="row g-3" method="post" action="{{ route('suratjalan.store') }}"
+                        <form class="row g-3" method="post" action="{{ route('penjualan.store') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="col-lg-4">
@@ -50,10 +50,15 @@
                                 <div class="ec-vendor-upload-detail g-3" id="form-product">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="inputEmail4" class="form-label">Nama Penerima</label>
-                                            <input type="text" name="nama_penerima" class="form-control slug-title"
-                                                id="inputEmail4">
+                                            <label class="form-label">Nama Penerima</label>
+                                            <select name="pelanggan[]" id="pelanggan" class="form-select">
+                                                <option value="">----PILIH DATA PELANGGAN----</option>
+                                                @foreach ($pelanggan as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
+
                                         <div class="col-md-6">
                                             <label class="form-label">Nomor HP</label>
                                             <input type="number" class="form-control" name="nomor_hp">
@@ -61,12 +66,28 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 mt-3">
-                                            <label class="form-label">Alamat Penerima</label>
+                                            <label class="form-label">NPWP</label>
                                             <input type="text" name="alamat_penerima" class="form-control">
                                         </div>
                                         <div class="col-md-6 mt-3">
+                                            <label class="form-label">Alamat Penerima</label>
+                                            <input type="text" name="alamat_penerima" class="form-control">
+                                        </div>
+                                        {{-- <div class="col-md-6 mt-3">
                                             <label class="form-label">Tanggal</label>
                                             <input type="date" name="tanggal" class="form-control">
+                                        </div> --}}
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <label for="inputEmail4" class="form-label">Tanggal Faktur</label>
+                                            <input type="date" name="nama_penerima" class="form-control slug-title"
+                                                id="inputEmail4">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="inputEmail4" class="form-label">Tanggal Jatuh Tempo</label>
+                                            <input type="date" name="nama_penerima" class="form-control slug-title"
+                                                id="inputEmail4">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -109,5 +130,11 @@
                 a.remove();
             }
         }
+
+        $(document).ready(function() {
+
+            // jQuery methods go here...
+
+        });
     </script>
 </x-app-layout>

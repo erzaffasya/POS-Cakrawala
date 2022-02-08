@@ -5,17 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SuratJalan extends Model
+class Pelanggan extends Model
 {
     use HasFactory;
-    protected $table = 'surat_jalan';
+    protected $table = 'pelanggan';
     protected $fillable = [
-       'no', 'tanggal', 'nama_penerima','alamat_penerima','nomor_hp','produk'
+       'no','nama','alamat','nomor_hp','npwp','ktp'
     ];
 
     protected $primaryKey = 'id';
 
-    protected $casts = [
-        'produk' => 'array',
-    ];
 }

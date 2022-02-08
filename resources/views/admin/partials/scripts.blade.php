@@ -30,4 +30,4 @@
 <!-- Ekka Custom -->
 <script src="{{asset('tadmin/assets/js/ekka.js')}}"></script>
 
-@yield('scripts')
+@stack('scripts')
