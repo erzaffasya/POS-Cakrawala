@@ -137,7 +137,7 @@
                                  </a>
                              </li>
                              <li class="{{ request()->is('penjualan') ? 'active' : '' }}">
-                                 <a class="sidenav-item-link" href="">
+                                 <a class="sidenav-item-link" href="{{route('penjualan.index')}}">
                                      <span class="nav-text">Data Penjualan</span>
                                  </a>
                              </li>

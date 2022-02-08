@@ -70,7 +70,7 @@ class PelangganController extends Controller
             'nomor_hp' => 'required',
             // 'gambar1' => 'file|mimes:jpg,png,jpeg,gif,svg,jfif|max:2048',
             'alamat' => 'required',
-            'kategori_id' => 'required',
+            // 'kategori_id' => 'required',
             'npwp' => 'required',
             'ktp' => 'required',
         ]);
@@ -92,7 +92,7 @@ class PelangganController extends Controller
         $pelanggan->nama = $request->nama;
         $pelanggan->nomor_hp = $request->nomor_hp;
         $pelanggan->alamat = $request->alamat;
-        $pelanggan->kategori_id = $request->kategori_id;
+        // $pelanggan->kategori_id = $request->kategori_id;
         $pelanggan->npwp = $request->npwp;
         $pelanggan->ktp = $request->ktp;
         $pelanggan->save();

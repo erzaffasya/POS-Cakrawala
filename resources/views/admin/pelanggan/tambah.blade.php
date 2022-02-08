@@ -64,7 +64,7 @@
                                     <div class="col-md-6">
                                         <label class="form-label">KTP</label>
                                         <input type="number" name="ktp" class="form-control" id="price1">
-                                    </div>                                    
+                                    </div>
                                     <div class="col-md-12">
                                         <label class="form-label">Alamat</label>
                                         <textarea class="form-control" name="alamat" rows="4"></textarea>
@@ -77,7 +77,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 </x-app-layout>

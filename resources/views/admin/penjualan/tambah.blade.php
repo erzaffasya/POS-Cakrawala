@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
         <div>
-            <h1>Add Produk</h1>
+            <h1>Add Penjualan</h1>
             <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
-                <span><i class="mdi mdi-chevron-right"></i></span>Produk
+                <span><i class="mdi mdi-chevron-right"></i></span>Penjualan
             </p>
         </div>
         <div>
@@ -15,7 +15,7 @@
         <div class="col-12">
             <div class="card card-default">
                 <div class="card-header card-header-border-bottom">
-                    <h2>Tambah Produk</h2>
+                    <h2>Tambah Penjualan</h2>
                 </div>
 
                 <div class="card-body">
