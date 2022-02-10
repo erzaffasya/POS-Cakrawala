@@ -119,6 +119,11 @@
                                      <span class="nav-text">Data Produk</span>
                                  </a>
                              </li>
+                             <li class="{{ request()->is('produk-grid') ? 'active' : '' }}">
+                                <a class="sidenav-item-link" href="{{ route('produk-grid') }}">
+                                    <span class="nav-text">Grid Produk</span>
+                                </a>
+                            </li>
                          </ul>
                      </div>
                  </li>

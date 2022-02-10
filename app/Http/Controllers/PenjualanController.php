@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Pelanggan;
 use App\Models\Penjualan;
+use App\Models\Produk;
+use App\Models\SuratJalan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 class PenjualanController extends Controller
@@ -18,18 +23,19 @@ class PenjualanController extends Controller
 
     public function create()
     {
-        $produk = Penjualan::all();
+        $produk = produk::all();
         $pelanggan = Pelanggan::all();
-        return view('admin.penjualan.tambah',compact('produk','pelanggan'));
+        return view('admin.penjualan.tambah', compact('produk', 'pelanggan'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'nama_penerima' => 'required',
+            'nama' => 'required',
             'nomor_hp' => 'required',
-            'alamat_penerima' => 'required',
-            'tanggal' => 'required',
+            'alamat' => 'required',
+            'tgl_faktur' => 'required',
+            'tgl_jatuhtempo' => 'required',
         ]);
 
         // $date = date("his");
@@ -38,33 +44,34 @@ class PenjualanController extends Controller
         // $path = $request->file('gambar1')->storeAs('public/penjualan', $file_name);
         $produk = $request->produk;
         $jumlah = $request->jumlah;
-    
 
-        for ($i=0; $i < count($produk); $i++) { 
+        $total = 0;
+        for ($i = 0; $i < count($produk); $i++) {
             $p = Produk::find($produk[$i]);
+            // dd((int)$jumlah[$i],(int)$p->harga);
+            $total = (int)$total + ((int)$jumlah[$i] * (int)$p->harga);
             $data[$i] = [
                 'nama' => $p->nama,
-                'harga' => $p->harga,
-                'jumlah' => $jumlah[$i],
+                'harga' => (int)$p->harga,
+                'jumlah' => (int)$jumlah[$i],
+                'hargatotal' => (int)$jumlah[$i]*$p->harga,
             ];
         }
-        // dd($data);
-        // foreach($produk as $item){
-        //   $data[]=[
-        //     'nama'=>'asd',
-        //     'jumlah'
-        //   ];
-        // }
 
+        $nama = Pelanggan::find($request->nama);
         Penjualan::create([
-            'no' => Str::random(3).Date::now(),
-            'nama_penerima' => $request->nama_penerima,
+            'no' => Str::random(3) . Carbon::today()->toDateString(),
+            'nama_penerima' => $nama->nama,
             'nomor_hp' => $request->nomor_hp,
-            // 'gambar' => $file_name,
-            'alamat_penerima' => $request->alamat_penerima,
-            'tanggal' => $request->tanggal,
+            'alamat_penerima' => $request->alamat,
+            'NPWP' => $request->npwp,
+            'tgl_faktur' => $request->tgl_faktur,
+            'total' => $total,
+            'tgl_jatuhtempo' => $request->tgl_jatuhtempo,
             'produk' => $data,
+            // 'diskon' => $request->diskon,
         ]);
+
         return redirect()->route('penjualan.index')
             ->with('success', 'penjualan Berhasil Ditambahkan');
     }
@@ -80,7 +87,7 @@ class PenjualanController extends Controller
     {
         $penjualan = Penjualan::find($id);
         // $kategori = Kategori::all();
-        return view('admin.penjualan.edit',compact('penjualan'));
+        return view('admin.penjualan.edit', compact('penjualan'));
     }
 
     public function update(Request $request, $id)
@@ -104,7 +111,7 @@ class PenjualanController extends Controller
             $extension = $request->file('gambar1')->extension();
             $file_name = "penjualan_$date.$extension";
             $path = $request->file('gambar1')->storeAs('public/penjualan', $file_name);
-            
+
             $penjualan->gambar = $file_name;
         }
 
@@ -116,7 +123,7 @@ class PenjualanController extends Controller
         $penjualan->save();
 
         return redirect()->route('penjualan.index')
-        ->with('edit', 'penjualan Berhasil Diedit');
+            ->with('edit', 'penjualan Berhasil Diedit');
     }
 
     public function destroy($id)
@@ -126,5 +133,25 @@ class PenjualanController extends Controller
         $penjualan->delete();
         return redirect()->route('penjualan.index')
             ->with('delete', 'penjualan Berhasil Dihapus');
+    }
+
+    public function get_pelanggan(Request $request)
+    {
+        $data = Pelanggan::find($request->id);
+        return $data;
+    }
+
+    public function suratjalan($id)
+    {
+        $suratjalan = Penjualan::find($id);
+        return view('admin.penjualan.suratjalan', compact('suratjalan'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function suratpenjualan($id)
+    {
+        $suratpenjualan = Penjualan::find($id);
+        return view('admin.penjualan.suratpenjualan', compact('suratpenjualan'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

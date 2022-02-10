@@ -51,7 +51,8 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label class="form-label">Nama Penerima</label>
-                                            <select name="pelanggan[]" id="pelanggan" class="form-select">
+                                            <select name="nama" id="pelanggan" onchange="pilihPelanggan()"
+                                                class="form-select">
                                                 <option value="">----PILIH DATA PELANGGAN----</option>
                                                 @foreach ($pelanggan as $item)
                                                     <option value="{{ $item->id }}">{{ $item->nama }}</option>
@@ -61,32 +62,29 @@
 
                                         <div class="col-md-6">
                                             <label class="form-label">Nomor HP</label>
-                                            <input type="number" class="form-control" name="nomor_hp">
+                                            <input type="number" id="nomor_hp" class="form-control" name="nomor_hp">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 mt-3">
                                             <label class="form-label">NPWP</label>
-                                            <input type="text" name="alamat_penerima" class="form-control">
+                                            <input type="text" id="npwp" name="npwp" class="form-control">
                                         </div>
                                         <div class="col-md-6 mt-3">
                                             <label class="form-label">Alamat Penerima</label>
-                                            <input type="text" name="alamat_penerima" class="form-control">
+                                            <input type="text" id="alamat" name="alamat"
+                                                class="form-control">
                                         </div>
-                                        {{-- <div class="col-md-6 mt-3">
-                                            <label class="form-label">Tanggal</label>
-                                            <input type="date" name="tanggal" class="form-control">
-                                        </div> --}}
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-6">
                                             <label for="inputEmail4" class="form-label">Tanggal Faktur</label>
-                                            <input type="date" name="nama_penerima" class="form-control slug-title"
+                                            <input type="date" name="tgl_faktur" class="form-control slug-title"
                                                 id="inputEmail4">
                                         </div>
                                         <div class="col-md-6">
                                             <label for="inputEmail4" class="form-label">Tanggal Jatuh Tempo</label>
-                                            <input type="date" name="nama_penerima" class="form-control slug-title"
+                                            <input type="date" name="tgl_jatuhtempo" class="form-control slug-title"
                                                 id="inputEmail4">
                                         </div>
                                     </div>
@@ -118,23 +116,38 @@
             </div>
         </div>
     </div>
-    <script>
-        function addProduct() {
-            var a = $('#form-product div.row:last').clone(true).addClass("product").insertAfter(
-                '#form-product div.row:last');
-        }
-
-        function removeProduct() {
-            var a = $('#form-product div.row:last');
-            if (a.hasClass("product")) {
-                a.remove();
+    @push('scripts')
+        <script>
+            function addProduct() {
+                var a = $('#form-product div.row:last').clone(true).addClass("product").insertAfter(
+                    '#form-product div.row:last');
             }
-        }
 
-        $(document).ready(function() {
+            function removeProduct() {
+                var a = $('#form-product div.row:last');
+                if (a.hasClass("product")) {
+                    a.remove();
+                }
+            }
 
-            // jQuery methods go here...
+            function pilihPelanggan() {
+                var id = $('#pelanggan').val();
+                console.log(id);
+                $.ajax({
+                    url: '{{ route('pelanggan.get_pelanggan') }}',
+                    type: 'get',
+                    data: {
+                        id: id
+                    },
+                    success: function(response) {
+                        console.log(response)
+                        $('#nomor_hp').val(response.nomor_hp);
+                        $('#alamat').val(response.alamat);
+                        $('#npwp').val(response.npwp);
 
-        });
-    </script>
+                    }
+                });
+            }
+        </script>
+    @endpush
 </x-app-layout>

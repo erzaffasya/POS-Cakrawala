@@ -10,9 +10,12 @@ class Penjualan extends Model
     use HasFactory;
     protected $table = 'penjualan';
     protected $fillable = [
-       'no', 'tgl_faktur', 'tgl_jatuhtempo','nama_penerima','alamat_penerima','nomor_hp','NPWP','diskon','total'
+        'no', 'tgl_faktur', 'tgl_jatuhtempo', 'nama_penerima', 'alamat_penerima', 'nomor_hp', 'NPWP', 'diskon', 'total','produk'
     ];
 
     protected $primaryKey = 'id';
-
+    
+    protected $casts = [
+        'produk' => 'array',
+    ];
 }

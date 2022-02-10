@@ -57,12 +57,18 @@
                                                 </button>
 
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item"
+                                                    {{-- <a class="dropdown-item"
                                                         href="{{ route('penjualan.edit', $item->id) }}">Edit</a>
-                                                        <a class="dropdown-item"
-                                                        href="{{ route('penjualan.show', $item->id) }}">Show</a>
                                                     <a class="dropdown-item"
-                                                        href="{{ route('penjualan.destroy', $item->id) }}">Delete</a>
+                                                        href="{{ route('penjualan.show', $item->id) }}">Show</a> --}}
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('surat-jalan', $item->id) }}">Surat
+                                                        Jalan</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('surat-penjualan', $item->id) }}">Surat
+                                                        Penjualan</a>
+                                                    {{-- <a class="dropdown-item"
+                                                        href="{{ route('penjualan.destroy', $item->id) }}">Delete</a> --}}
                                                 </div>
                                             </div>
                                         </td>

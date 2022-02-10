@@ -15,16 +15,16 @@ class CreatePenjualansTable extends Migration
     {
         Schema::create('penjualan', function (Blueprint $table) {
             $table->id();
-            $table->string('no');
-            $table->date('tgl_faktur');
-            $table->date('tgl_jatuhtempo');
-            $table->string('nama_penerima');
-            $table->string('alamat_penerima');
-            $table->string('nomor_hp');
-            $table->string('NPWP');
-            $table->string('diskon');
-            $table->integer('total');
-            $table->json('produk');
+            $table->string('no')->nullable();
+            $table->date('tgl_faktur')->nullable();
+            $table->date('tgl_jatuhtempo')->nullable();
+            $table->string('nama_penerima')->nullable();
+            $table->string('alamat_penerima')->nullable();
+            $table->string('nomor_hp')->nullable();
+            $table->string('NPWP')->nullable();
+            $table->string('diskon')->nullable();
+            $table->integer('total')->nullable();
+            $table->json('produk')->nullable();
             $table->timestamps();
         });
     }

@@ -25,6 +25,9 @@ Route::get('/', function () {
 Route::resource('pelanggan', PelangganController::class);
 Route::resource('produk', ProdukController::class);
 Route::resource('penjualan', PenjualanController::class);
+Route::get('get-pelanggan',[PenjualanController::class, 'get_pelanggan'])->name('pelanggan.get_pelanggan');
+Route::get('surat-jalan/{id}',[PenjualanController::class, 'suratjalan'])->name('surat-jalan');
+Route::get('surat-penjualan/{id}',[PenjualanController::class, 'suratpenjualan'])->name('surat-penjualan');
 Route::resource('pembelian', PembelianController::class);
 Route::resource('suratjalan', SuratJalanController::class);
 Route::get('produk-grid', [ProdukController::class, 'grid'])->name('produk-grid');
