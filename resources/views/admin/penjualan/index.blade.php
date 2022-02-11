@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
         <div>
-            <h1>Surat Jalan</h1>
+            <h1>Penjualan</h1>
             <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
-                <span><i class="mdi mdi-chevron-right"></i></span>Surat Jalan
+                <span><i class="mdi mdi-chevron-right"></i></span>Penjualan
             </p>
         </div>
         <div>
-            <a href="{{ route('produk.create') }}" class="btn btn-primary"> Tambah Surat Jalan</a>
+            <a href="{{ route('produk.create') }}" class="btn btn-primary"> Tambah Penjualan</a>
         </div>
     </div>
     <div class="row">
@@ -33,7 +33,7 @@
                                 @foreach ($penjualan as $item)
                                     <tr>
                                         <td>{{ $item->no }}</td>
-                                        <td>{{ $item->tanggal }}</td>
+                                        <td>{{ $item->tgl_faktur }}</td>
                                         <td>{{ $item->nama_penerima }}</td>
                                         <td>{{ $item->alamat_penerima }}</td>
                                         <td>{{ $item->nomor_hp }}</td>

@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
         <div>
-            <h1>Product</h1>
+            <h1>Produk</h1>
             <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
-                <span><i class="mdi mdi-chevron-right"></i></span>Product
+                <span><i class="mdi mdi-chevron-right"></i></span>Produk
             </p>
         </div>
         <div>
-            <a href="{{route('produk.create')}}" class="btn btn-primary"> Add Porduct</a>
+            <a href="{{route('produk.create')}}" class="btn btn-primary"> Tambah Produk</a>
         </div>
     </div>
 

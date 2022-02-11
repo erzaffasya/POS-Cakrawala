@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
         <div>
-            <h1>Add pelanggan</h1>
+            <h1>Tambah Pelanggan</h1>
             <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
-                <span><i class="mdi mdi-chevron-right"></i></span>pelanggan
+                <span><i class="mdi mdi-chevron-right"></i></span>Pelanggan
             </p>
         </div>
         <div>
@@ -72,10 +72,11 @@
                                     <div class="col-md-12 pt-4">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
+
+                                </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </x-app-layout>

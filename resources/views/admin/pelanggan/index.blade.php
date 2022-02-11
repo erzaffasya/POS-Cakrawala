@@ -3,11 +3,11 @@
         <div>
             <h1>pelanggan</h1>
             <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
-                <span><i class="mdi mdi-chevron-right"></i></span>pelanggan
+                <span><i class="mdi mdi-chevron-right"></i></span>Pelanggan
             </p>
         </div>
         <div>
-            <a href="{{ route('pelanggan.create') }}" class="btn btn-primary"> Tambah pelanggan</a>
+            <a href="{{ route('pelanggan.create') }}" class="btn btn-primary"> Tambah Pelanggan</a>
         </div>
     </div>
     <div class="row">
