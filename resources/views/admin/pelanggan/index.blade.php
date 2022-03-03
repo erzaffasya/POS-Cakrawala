@@ -54,7 +54,7 @@
 
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="{{route('pelanggan.edit',$item->id)}}">Edit</a>
-                                                    <a class="dropdown-item" href="{{route('pelanggan.destroy',$item->id)}}">Delete</a>
+                                                    <a class="dropdown-item" href="{{url('destroyPelanggan',$item->id)}}">Delete</a>
                                                 </div>
                                             </div>
                                         </td>

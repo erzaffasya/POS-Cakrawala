@@ -63,7 +63,7 @@
                                             <a href="{{ route('produk.show', $item->id) }}" class="card-preview"><i
                                                     class="mdi mdi-eye-outline"></i>
                                             </a>
-                                            <a href="{{ route('produk.destroy', $item->id) }}" class="card-remove"><i
+                                            <a href="{{ url('destroyProduk', $item->id) }}" class="card-remove"><i
                                                     class="mdi mdi mdi-delete-outline"></i>
                                             </a>
                                         </div>

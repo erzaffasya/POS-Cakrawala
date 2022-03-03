@@ -103,10 +103,10 @@ class PelangganController extends Controller
 
     public function destroy($id)
     {
-        $pelanggan = Pelanggan::findOrFail($id);
+        $pelanggan = Pelanggan::findOrFail($id)->delete();
         // Storage::delete("public/Pelanggan/$pelanggan->gambar");
-        $pelanggan->delete();
-        return redirect()->route('pelanggan.index')
+        // $pelanggan->delete();
+        return back()
             ->with('delete', 'pelanggan Berhasil Dihapus');
     }
 

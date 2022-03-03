@@ -69,7 +69,6 @@ class ProdukController extends Controller
             'detail' => 'required',
             'gambar1' => 'file|mimes:jpg,png,jpeg,gif,svg,jfif|max:2048',
             'harga' => 'required',
-            'kategori_id' => 'required',
             'stok' => 'required',
         ]);
 
@@ -90,7 +89,6 @@ class ProdukController extends Controller
         $Produk->nama = $request->nama;
         $Produk->detail = $request->detail;
         $Produk->harga = $request->harga;
-        $Produk->kategori_id = $request->kategori_id;
         $Produk->stok = $request->stok;
         $Produk->save();
 
@@ -100,10 +98,10 @@ class ProdukController extends Controller
 
     public function destroy($id)
     {
-        $Produk = Produk::findOrFail($id);
-        Storage::delete("public/Produk/$Produk->gambar");
-        $Produk->delete();
-        return redirect()->route('produk.index')
+        $Produk = Produk::findOrFail($id)->delete();
+        // Storage::delete("public/Produk/$Produk->gambar");
+        // $Produk->delete();
+        return back()
             ->with('delete', 'Produk Berhasil Dihapus');
     }
 

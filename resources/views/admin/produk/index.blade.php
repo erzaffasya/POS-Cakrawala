@@ -57,7 +57,7 @@
                                                     <a class="dropdown-item"
                                                         href="{{ route('produk.edit', $item->id) }}">Edit</a>
                                                     <a class="dropdown-item"
-                                                        href="{{ route('produk.destroy', $item->id) }}">Delete</a>
+                                                        href="{{ url('destroyProduk', $item->id) }}">Delete</a>
                                                 </div>
                                             </div>
                                         </td>

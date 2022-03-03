@@ -22,8 +22,10 @@ Route::get('/', function () {
     return view('admin.index');
 });
 
-Route::resource('pelanggan', PelangganController::class);
-Route::resource('produk', ProdukController::class);
+Route::resource('pelanggan', PelangganController::class)->except('destroy');
+Route::get('destroyPelanggan/{id}', [PelangganController::class, 'destroy']);
+Route::resource('produk', ProdukController::class)->except('destroy');
+Route::get('destroyProduk/{id}', [ProdukController::class, 'destroy']);
 Route::resource('penjualan', PenjualanController::class);
 Route::get('get-pelanggan',[PenjualanController::class, 'get_pelanggan'])->name('pelanggan.get_pelanggan');
 Route::get('surat-jalan/{id}',[PenjualanController::class, 'suratjalan'])->name('surat-jalan');
