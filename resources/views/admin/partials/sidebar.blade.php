@@ -23,7 +23,7 @@
                  </li>
 
                  <!-- Vendors -->
-                 <li class="has-sub">
+                 {{-- <li class="has-sub">
                      <a class="sidenav-item-link" href="javascript:void(0)">
                          <i class="mdi mdi-account-group-outline"></i>
                          <span class="nav-text">Vendors</span> <b class="caret"></b>
@@ -48,10 +48,10 @@
                              </li>
                          </ul>
                      </div>
-                 </li>
+                 </li> --}}
 
                  <!-- Users -->
-                 <li class="has-sub">
+                 {{-- <li class="has-sub">
                      <a class="sidenav-item-link" href="javascript:void(0)">
                          <i class="mdi mdi-account-group"></i>
                          <span class="nav-text">Users</span> <b class="caret"></b>
@@ -77,7 +77,7 @@
                          </ul>
                      </div>
                      <hr>
-                 </li>
+                 </li> --}}
 
                  {{-- Pelanggan --}}
                  <li class="has-sub {{ request()->is('pelanggan*') ? 'active expand' : '' }}">
