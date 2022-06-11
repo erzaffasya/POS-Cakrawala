@@ -18641,8 +18641,8 @@ label {
 }
 
 .table .tbl-thumb {
-  width: 50px;
-  border-radius: 15px;
+  width: 150px;
+  border-radius: 10px;
 }
 
 .rounded-circle {

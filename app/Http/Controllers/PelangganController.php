@@ -29,21 +29,23 @@ class PelangganController extends Controller
             'nomor_hp' => 'required',
             'npwp' => 'required',
             'ktp' => 'required',
-            // 'gambar1' => 'required', 
         ]);
 
-        // $date = date("his");
-        // $extension = $request->file('gambar1')->extension();
-        // $file_name = "pelanggan_$date.$extension";
-        // $path = $request->file('gambar1')->storeAs('public/Pelanggan', $file_name);
-
+        $date = date("his");
+        if($request->image){
+            $extension = $request->file('image')->extension();
+            $file_name = "pelanggan_$date.$extension";
+            $path = $request->file('image')->storeAs('public/Pelanggan', $file_name);
+    
+        }
         Pelanggan::create([
             'nama' => $request->nama,
             'nomor_hp' => $request->nomor_hp,
-            // 'gambar' => $file_name,
+            'image' => $file_name,
             'alamat' => $request->alamat,
             'npwp' => $request->npwp,
             'ktp' => $request->ktp,
+            'status' => 'active'
         ]);
         return redirect()->route('pelanggan.index')
             ->with('success', 'pelanggan Berhasil Ditambahkan');
@@ -59,40 +61,35 @@ class PelangganController extends Controller
     public function edit($id)
     {
         $pelanggan = Pelanggan::find($id);
-        // $kategori = Kategori::all();
         return view('admin.pelanggan.edit',compact('pelanggan'));
     }
 
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $request->validate([
             'nama' => 'required',
             'nomor_hp' => 'required',
-            // 'gambar1' => 'file|mimes:jpg,png,jpeg,gif,svg,jfif|max:2048',
             'alamat' => 'required',
-            // 'kategori_id' => 'required',
             'npwp' => 'required',
             'ktp' => 'required',
         ]);
 
         $pelanggan = Pelanggan::findOrFail($id);
 
-        // if ($request->has("gambar1")) {
-
-        //     Storage::delete("public/Pelanggan/$pelanggan->gambar");
-
-        //     $date = date("his");
-        //     $extension = $request->file('gambar1')->extension();
-        //     $file_name = "pelanggan_$date.$extension";
-        //     $path = $request->file('gambar1')->storeAs('public/Pelanggan', $file_name);
-            
-        //     $pelanggan->gambar = $file_name;
-        // }
-
+        $date = date("his");
+        if($request->image){
+            $extension = $request->file('image')->extension();
+            $file_name = "pelanggan_$date.$extension";
+            $path = $request->file('image')->storeAs('public/Pelanggan', $file_name);
+        } else{
+            $file_name = $pelanggan->image;
+        }
         $pelanggan->nama = $request->nama;
         $pelanggan->nomor_hp = $request->nomor_hp;
         $pelanggan->alamat = $request->alamat;
-        // $pelanggan->kategori_id = $request->kategori_id;
+        $pelanggan->status = $request->status;
+        $pelanggan->image = $file_name;
         $pelanggan->npwp = $request->npwp;
         $pelanggan->ktp = $request->ktp;
         $pelanggan->save();

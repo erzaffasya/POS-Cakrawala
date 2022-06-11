@@ -18,7 +18,7 @@
                         <table id="responsive-data-table" class="table" style="width:100%">
                             <thead>
                                 <tr>
-                                    {{-- <th>pelanggan</th> --}}
+                                    <th>Pelanggan</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Nomor HP</th>                                   
@@ -32,16 +32,14 @@
                             <tbody>
                                 @foreach ($pelanggan as $item)
                                     <tr>
-                                        {{-- <td><img class="tbl-thumb" src="{{asset('storage/pelanggan/'.$item->gambar)}}"
-                                                alt="Product Image" /></td> --}}
+                                        <td><img class="tbl-thumb" src="{{asset('storage/pelanggan/'.$item->image)}}"
+                                                alt="Product Image" /></td>
                                         <td>{{$item->nama}}</td>
                                         <td>{{$item->alamat}}</td>
                                         <td>{{$item->nomor_hp}}</td>
                                         <td>{{$item->npwp}}</td>
                                         <td>{{$item->ktp}}</td>
-                                        {{-- <td>{{$item->kategori->nama}}</td> --}}
-                                        <td>ACTIVE</td>
-                                        {{-- <td>{{$item->created_at->format('m/d/Y')}}</td> --}}
+                                        <td>{{Str::upper($item->status)}}</td>
                                         <td>
                                             <div class="btn-group mb-1">
                                                 <button type="button" class="btn btn-outline-success">Info</button>

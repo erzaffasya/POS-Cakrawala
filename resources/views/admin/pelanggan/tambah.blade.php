@@ -28,7 +28,7 @@
                                     <div class="ec-vendor-main-img">
                                         <div class="avatar-upload">
                                             <div class="avatar-edit">
-                                                <input type='file' id="imageUpload" name="gambar1"
+                                                <input type='file' id="imageUpload" name="image"
                                                     class="ec-image-upload" accept=".png, .jpg, .jpeg" />
                                                 <label for="imageUpload"><img
                                                         src="{{ asset('tadmin/assets/img/icons/edit.svg') }}"

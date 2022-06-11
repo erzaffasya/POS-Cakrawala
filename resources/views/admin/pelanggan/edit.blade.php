@@ -29,7 +29,7 @@
                                     <div class="ec-vendor-main-img">
                                         <div class="avatar-upload">
                                             <div class="avatar-edit">
-                                                <input type='file' id="imageUpload" name="gambar1"
+                                                <input type='file' id="imageUpload" name="image"
                                                     class="ec-image-upload" accept=".png, .jpg, .jpeg" />
                                                 <label for="imageUpload"><img
                                                         src="{{ asset('tadmin/assets/img/icons/edit.svg') }}"
@@ -38,7 +38,7 @@
                                             <div class="avatar-preview ec-preview">
                                                 <div class="imagePreview ec-div-preview">
                                                     <img class="ec-image-preview"
-                                                        src="{{ asset('tadmin/assets/img/products/vender-upload-preview.jpg') }}"
+                                                        src="{{ asset('storage/pelanggan/'.$pelanggan->image) }}"
                                                         alt="edit" />
                                                 </div>
                                             </div>
@@ -69,6 +69,15 @@
                                     <div class="col-md-12">
                                         <label class="form-label">Alamat</label>
                                         <textarea class="form-control" name="alamat" rows="4">{{$pelanggan->alamat}}</textarea>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label">Status</label>
+                                        <select name="status" id="status"
+                                                class="form-select">
+                                                {{-- <option value="">----PILIH DATA STATUS----</option> --}}
+                                                <option value="active">Active</option>
+                                                <option value="inactive">Inactive</option>
+                                            </select>
                                     </div>
                                     <div class="col-md-12 pt-4">
                                         <button type="submit" class="btn btn-primary">Submit</button>
