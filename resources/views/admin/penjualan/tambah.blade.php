@@ -109,7 +109,7 @@
                                         onclick="removeProduct()">Hapus</button>
                                 </div>
                             </div>
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <button class="btn btn-primary mt-2" type="submit">Submit</button>
                         </form>
                     </div>
                 </div>

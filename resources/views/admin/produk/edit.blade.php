@@ -128,12 +128,12 @@
                                             @endforeach
                                         </select>
                                     </div> --}}
-                                    <div class="col-md-12">
+                                    {{-- <div class="col-md-12">
                                         <label for="slug" class="col-12 col-form-label">Slug</label>
                                         <div class="col-12">
                                             <input id="slug" name="slug" class="form-control here set-slug" type="text">
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     {{-- <div class="col-md-12">
                                         <label class="form-label">Sort Description</label>
                                         <textarea class="form-control" rows="2"></textarea>
@@ -195,7 +195,7 @@
                                         <input type="text" class="form-control" id="group_tag" name="group_tag"
                                             value="" placeholder="" data-role="tagsinput" />
                                     </div> --}}
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 mt-3">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                         </form>
