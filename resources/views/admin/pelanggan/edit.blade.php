@@ -38,7 +38,7 @@
                                             <div class="avatar-preview ec-preview">
                                                 <div class="imagePreview ec-div-preview">
                                                     <img class="ec-image-preview"
-                                                        src="{{ asset('storage/pelanggan/'.$pelanggan->image) }}"
+                                                        src="{{ asset('storage/Pelanggan/'.$pelanggan->image) }}"
                                                         alt="edit" />
                                                 </div>
                                             </div>
