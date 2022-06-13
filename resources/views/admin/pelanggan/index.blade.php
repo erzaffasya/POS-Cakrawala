@@ -32,7 +32,7 @@
                             <tbody>
                                 @foreach ($pelanggan as $item)
                                     <tr>
-                                        <td><img class="tbl-thumb" src="{{asset('storage/pelanggan/'.$item->image)}}"
+                                        <td><img class="tbl-thumb" src="{{asset('storage/Pelanggan/'.$item->image)}}"
                                                 alt="Product Image" /></td>
                                         <td>{{$item->nama}}</td>
                                         <td>{{$item->alamat}}</td>
