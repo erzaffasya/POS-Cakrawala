@@ -20,6 +20,7 @@ class CreatePelanggansTable extends Migration
             $table->string('nomor_hp')->nullable();
             $table->string('npwp')->nullable();
             $table->string('ktp')->nullable();
+            $table->string('image')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
