@@ -56,15 +56,15 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Nomor HP</label>
-                                        <input type="number" class="form-control" value="{{$pelanggan->nomor_hp}}" name="nomor_hp" id="quantity1">
+                                        <input type="number" min="0" class="form-control" value="{{$pelanggan->nomor_hp}}" name="nomor_hp" id="quantity1">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">NPWP</label>
-                                        <input type="number" name="npwp" value="{{$pelanggan->npwp}}" class="form-control" id="price1">
+                                        <input type="number" min="0" name="npwp" value="{{$pelanggan->npwp}}" class="form-control" id="price1">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">KTP</label>
-                                        <input type="number" name="ktp" value="{{$pelanggan->ktp}}" class="form-control" id="price1">
+                                        <input type="number" min="0" name="ktp" value="{{$pelanggan->ktp}}" class="form-control" id="price1">
                                     </div>
                                     <div class="col-md-12">
                                         <label class="form-label">Alamat</label>

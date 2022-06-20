@@ -32,11 +32,13 @@ class PelangganController extends Controller
         ]);
 
         $date = date("his");
-        if($request->image){
+        if($request->image != null){
             $extension = $request->file('image')->extension();
             $file_name = "pelanggan_$date.$extension";
             $path = $request->file('image')->storeAs('public/Pelanggan', $file_name);
     
+        }else{
+            $file_name = null;
         }
         Pelanggan::create([
             'nama' => $request->nama,

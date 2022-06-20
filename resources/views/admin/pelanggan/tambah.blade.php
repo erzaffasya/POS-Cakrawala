@@ -55,15 +55,15 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Nomor HP</label>
-                                        <input type="number" class="form-control" name="nomor_hp" id="quantity1">
+                                        <input type="number" min="0" class="form-control" name="nomor_hp" id="quantity1">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">NPWP</label>
-                                        <input type="number" name="npwp" class="form-control" id="price1">
+                                        <input type="number" min="0" name="npwp" class="form-control" id="price1">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">KTP</label>
-                                        <input type="number" name="ktp" class="form-control" id="price1">
+                                        <input type="number" name="ktp" min="0" class="form-control" id="price1">
                                     </div>
                                     <div class="col-md-12">
                                         <label class="form-label">Alamat</label>
