@@ -55,11 +55,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Harga</label>
-                                        <input type="number" name="harga" class="form-control" id="price1">
+                                        <input type="number" name="harga" min="0" class="form-control" id="price1">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Stok</label>
-                                        <input type="number" class="form-control" name="stok" id="quantity1">
+                                        <input type="number" class="form-control" min="0" name="stok" id="quantity1">
                                     </div>
                                     <div class="col-md-12">
                                         <label class="form-label">Full Detail</label>

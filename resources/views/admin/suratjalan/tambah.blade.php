@@ -56,7 +56,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label">Nomor HP</label>
-                                            <input type="number" class="form-control" name="nomor_hp">
+                                            <input type="number" min="0" class="form-control" name="nomor_hp">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -80,7 +80,7 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <label class="form-label">Jumlah</label>
-                                            <input type="number" name="jumlah[]" class="form-control">
+                                            <input type="number" min="0" name="jumlah[]" class="form-control">
                                         </div>
                                     </div>
                                 </div>

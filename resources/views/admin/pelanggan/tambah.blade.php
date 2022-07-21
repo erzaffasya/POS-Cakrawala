@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">NPWP</label>
-                                        <input type="number" min="0" name="npwp" class="form-control" id="price1">
+                                        <input type="text" name="npwp" class="form-control" id="price1">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">KTP</label>

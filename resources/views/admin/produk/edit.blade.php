@@ -177,12 +177,12 @@
                                     <div class="col-md-6">
                                         <label class="form-label">Price <span>( In IDR
                                                 )</span></label>
-                                        <input type="number" value="{{ $produk->harga }}" name="harga"
+                                        <input type="number" min="0" value="{{ $produk->harga }}" name="harga"
                                             class="form-control" id="price1">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Quantity</label>
-                                        <input type="number" value="{{ $produk->stok }}" class="form-control"
+                                        <input type="number" min="0" value="{{ $produk->stok }}" class="form-control"
                                             name="stok" id="quantity1">
                                     </div>
                                     <div class="col-md-12">
